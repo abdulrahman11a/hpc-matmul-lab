@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520" role="img" aria-labelledby="t d">
+<title id="t">CUDA tiled kernel with shared memory</title>
+<desc id="d">Each thread block computes one tile of C, looping over tiles of A and B that it stages through shared memory, synchronizing between the load and compute phases.</desc>
+<defs><marker id="a-grey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6e7781"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0969da"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker><marker id="a-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bc4c00"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/></marker><marker id="a-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8250df"/></marker></defs>
+<rect x="0.5" y="0.5" width="979" height="519" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="490" y="36" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">CUDA: tiled kernel with shared memory</text>
+<text x="490" y="58" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">One thread block computes one TILE × TILE tile of C and reuses tiles of A and B from fast on-chip memory</text>
+<text x="160" y="108" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">C split into TILE × TILE tiles</text>
+<rect x="40" y="120" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="100" y="120" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="160" y="120" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="220" y="120" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="40" y="180" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="100" y="180" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="220" y="180" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="40" y="240" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="100" y="240" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="160" y="240" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="220" y="240" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="40" y="300" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="100" y="300" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="160" y="300" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="220" y="300" width="60" height="60" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="160" y="180" width="60" height="60" rx="0" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+<text x="190" y="208" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#bc4c00" text-anchor="middle" xml:space="preserve">block</text>
+<text x="190" y="223" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#bc4c00" text-anchor="middle" xml:space="preserve">(2, 1)</text>
+<rect x="40" y="120" width="240" height="240" rx="0" fill="none" stroke="#57606a" stroke-width="1.5"/>
+<text x="160" y="380" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">blockIdx.x  →</text>
+<text x="24" y="240" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve" transform="rotate(90 24 240)">blockIdx.y  →</text>
+<text x="160" y="408" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">Each thread computes one element of C</text>
+<text x="160" y="428" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">(threadIdx.x, threadIdx.y) inside the tile</text>
+<text x="490" y="108" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Loop over the k tiles</text>
+<rect x="330" y="120" width="320" height="52" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5"/>
+<text x="342" y="142" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">1  Load tiles: each thread copies one</text>
+<text x="342" y="161" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">    element of A and one of B to shared memory</text>
+<line x1="490" y1="173" x2="490" y2="183" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<rect x="330" y="184" width="320" height="52" rx="8" fill="#fff1e5" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="342" y="206" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">2  __syncthreads()</text>
+<text x="342" y="225" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">    all tiles are fully loaded</text>
+<line x1="490" y1="237" x2="490" y2="247" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<rect x="330" y="248" width="320" height="52" rx="8" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="342" y="270" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">3  Compute partial sums from shared memory</text>
+<text x="342" y="289" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">    (TILE multiply-adds per thread)</text>
+<line x1="490" y1="301" x2="490" y2="311" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<rect x="330" y="312" width="320" height="52" rx="8" fill="#fff1e5" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="342" y="334" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">4  __syncthreads()</text>
+<text x="342" y="353" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">    before the tiles are overwritten</text>
+<line x1="490" y1="365" x2="490" y2="375" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<rect x="330" y="376" width="320" height="52" rx="8" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.5"/>
+<text x="342" y="398" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">5  Next tile along k; after the last one</text>
+<text x="342" y="417" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">    write the result to C</text>
+<path d="M 652 402 L 668 402 L 668 146 L 653 146" fill="none" stroke="#6e7781" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a-grey)"/>
+<text x="684" y="274" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve" transform="rotate(-90 684 274)">repeat N / TILE times</text>
+<text x="840" y="108" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Memory hierarchy</text>
+<rect x="725" y="120" width="230" height="74" rx="8" fill="#fbefff" stroke="#8250df" stroke-width="1.5"/>
+<text x="840" y="144" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#8250df" text-anchor="middle" xml:space="preserve">Global memory</text>
+<text x="840" y="163" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">device DRAM, large</text>
+<text x="840" y="179" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">highest latency, all blocks</text>
+<rect x="745" y="240" width="190" height="74" rx="8" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5"/>
+<text x="840" y="264" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#0969da" text-anchor="middle" xml:space="preserve">Shared memory</text>
+<text x="840" y="283" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">on-chip, per block</text>
+<text x="840" y="299" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">low latency, managed by you</text>
+<rect x="765" y="360" width="150" height="64" rx="8" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="840" y="384" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">Registers</text>
+<text x="840" y="403" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">per thread</text>
+<text x="840" y="419" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">fastest</text>
+<line x1="840" y1="194" x2="840" y2="238" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<text x="850" y="221" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">coalesced tile load</text>
+<line x1="840" y1="314" x2="840" y2="358" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<text x="850" y="341" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">operands for FMAs</text>
+<text x="490" y="458" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Why it helps: a naive kernel reads each A and B element from global memory N times.</text>
+<text x="490" y="480" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">With TILE × TILE tiles in shared memory, global traffic drops by a factor of TILE.</text>
+<text x="490" y="502" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">Coalesced loads: consecutive threads (threadIdx.x) read consecutive addresses.</text>
+</svg>

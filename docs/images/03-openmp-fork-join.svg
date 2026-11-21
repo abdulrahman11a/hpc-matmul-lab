@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="470" viewBox="0 0 980 470" role="img" aria-labelledby="t d">
+<title id="t">OpenMP fork-join over rows of C</title>
+<desc id="d">A master thread forks four threads, each computing a band of rows of C; they join at an implicit barrier. A is read by row band, B is shared, C is written by row band.</desc>
+<defs><marker id="a-grey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6e7781"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0969da"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker><marker id="a-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bc4c00"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/></marker><marker id="a-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8250df"/></marker></defs>
+<rect x="0.5" y="0.5" width="979" height="469" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="490" y="36" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">OpenMP: fork–join over the rows of C</text>
+<text x="490" y="58" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">#pragma omp parallel for  ·  each thread owns a band of rows of C; A and B are only read</text>
+<line x1="578" y1="84" x2="578" y2="440" stroke="#6e7781" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="30" y="86" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">Execution timeline</text>
+<rect x="30" y="130" width="120" height="36" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.5"/>
+<text x="90" y="153" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">serial: init</text>
+<rect x="440" y="130" width="100" height="36" rx="6" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.5"/>
+<text x="490" y="153" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">serial: check</text>
+<rect x="150" y="130" width="290" height="36" rx="6" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5"/>
+<text x="162" y="153" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#0969da" text-anchor="start" xml:space="preserve">T0 · rows 0 … N/4 − 1</text>
+<rect x="150" y="182" width="290" height="36" rx="6" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="162" y="205" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#1a7f37" text-anchor="start" xml:space="preserve">T1 · rows N/4 … N/2 − 1</text>
+<rect x="150" y="234" width="290" height="36" rx="6" fill="#fff1e5" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="162" y="257" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#bc4c00" text-anchor="start" xml:space="preserve">T2 · rows N/2 … 3N/4 − 1</text>
+<rect x="150" y="286" width="290" height="36" rx="6" fill="#fbefff" stroke="#8250df" stroke-width="1.5"/>
+<text x="162" y="309" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#8250df" text-anchor="start" xml:space="preserve">T3 · rows 3N/4 … N − 1</text>
+<line x1="150" y1="114" x2="150" y2="332" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="440" y1="114" x2="440" y2="332" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="150" y="110" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#57606a" text-anchor="middle" xml:space="preserve">fork</text>
+<text x="440" y="110" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#57606a" text-anchor="middle" xml:space="preserve">join (implicit barrier)</text>
+<line x1="30" y1="350" x2="545" y2="350" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<text x="545" y="368" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="end" xml:space="preserve">time</text>
+<text x="30" y="396" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">Equal bar lengths = balanced load (schedule(static) fits: every row costs the same).</text>
+<text x="30" y="418" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">The barrier at the end means the slowest thread decides the finish time.</text>
+<text x="30" y="440" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">Watch for: memory bandwidth, thread pinning (OMP_PROC_BIND), false sharing.</text>
+<text x="780" y="90" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Data partitioning</text>
+<text x="657" y="120" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">A</text>
+<text x="777" y="120" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">B</text>
+<text x="897" y="120" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">C</text>
+<rect x="612" y="130" width="90" height="40" rx="0" fill="#a5d6ff" stroke="#0969da" stroke-width="1.5"/>
+<text x="657" y="155" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0969da" text-anchor="middle" xml:space="preserve">T0</text>
+<rect x="612" y="170" width="90" height="40" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="657" y="195" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">T1</text>
+<rect x="612" y="210" width="90" height="40" rx="0" fill="#ffd8b5" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="657" y="235" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#bc4c00" text-anchor="middle" xml:space="preserve">T2</text>
+<rect x="612" y="250" width="90" height="40" rx="0" fill="#e8c8ff" stroke="#8250df" stroke-width="1.5"/>
+<text x="657" y="275" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#8250df" text-anchor="middle" xml:space="preserve">T3</text>
+<rect x="732" y="130" width="90" height="160" rx="0" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.5"/>
+<text x="777" y="208" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#57606a" text-anchor="middle" xml:space="preserve">shared</text>
+<text x="777" y="226" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">read-only</text>
+<rect x="852" y="130" width="90" height="40" rx="0" fill="#a5d6ff" stroke="#0969da" stroke-width="1.5"/>
+<text x="897" y="155" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#0969da" text-anchor="middle" xml:space="preserve">T0</text>
+<rect x="852" y="170" width="90" height="40" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="897" y="195" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">T1</text>
+<rect x="852" y="210" width="90" height="40" rx="0" fill="#ffd8b5" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="897" y="235" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#bc4c00" text-anchor="middle" xml:space="preserve">T2</text>
+<rect x="852" y="250" width="90" height="40" rx="0" fill="#e8c8ff" stroke="#8250df" stroke-width="1.5"/>
+<text x="897" y="275" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#8250df" text-anchor="middle" xml:space="preserve">T3</text>
+<text x="717" y="218" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">×</text>
+<text x="837" y="218" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">=</text>
+<text x="612" y="328" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">A: each thread reads only its own rows</text>
+<text x="612" y="352" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">B: every thread reads all of it (shared)</text>
+<text x="612" y="376" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">C: each thread writes only its own rows</text>
+<text x="612" y="400" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#1a7f37" text-anchor="start" xml:space="preserve">→ no write conflicts, so no locks are needed</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="450" viewBox="0 0 980 450" role="img" aria-labelledby="t d">
+<title id="t">Cache blocking</title>
+<desc id="d">Matrix multiplication split into tiles: one tile of C is updated by multiplying a row of tiles of A with a column of tiles of B, one tile pair at a time.</desc>
+<defs><marker id="a-grey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6e7781"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0969da"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker><marker id="a-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bc4c00"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/></marker><marker id="a-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8250df"/></marker></defs>
+<rect x="0.5" y="0.5" width="979" height="449" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="490" y="36" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Cache blocking: work on tiles that fit in cache</text>
+<text x="490" y="58" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">C tile  +=  A tile × B tile, repeated for every k tile</text>
+<text x="170" y="88" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">C</text>
+<rect x="60" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="115" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="170" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="225" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="60" y="155" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="115" y="155" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="225" y="155" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="60" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="115" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="170" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="225" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="60" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="115" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="170" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="225" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="170" y="155" width="55" height="55" rx="0" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+<text x="197.5" y="186.5" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#bc4c00" text-anchor="middle" xml:space="preserve">C(1,2)</text>
+<rect x="60" y="100" width="220" height="220" rx="0" fill="none" stroke="#57606a" stroke-width="1.5"/>
+<text x="480" y="88" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">A</text>
+<rect x="370" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="425" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="480" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="535" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="370" y="155" width="55" height="55" rx="0" fill="#ddf4ff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="425" y="155" width="55" height="55" rx="0" fill="#ddf4ff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="535" y="155" width="55" height="55" rx="0" fill="#ddf4ff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="370" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="425" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="480" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="535" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="370" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="425" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="480" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="535" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="480" y="155" width="55" height="55" rx="0" fill="#a5d6ff" stroke="#0969da" stroke-width="2.5"/>
+<text x="507.5" y="186.5" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0969da" text-anchor="middle" xml:space="preserve">A(1,k)</text>
+<rect x="370" y="100" width="220" height="220" rx="0" fill="none" stroke="#57606a" stroke-width="1.5"/>
+<text x="790" y="88" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">B</text>
+<rect x="680" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="735" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="790" y="100" width="55" height="55" rx="0" fill="#dafbe1" stroke="#d0d7de" stroke-width="1"/>
+<rect x="845" y="100" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="680" y="155" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="735" y="155" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="790" y="155" width="55" height="55" rx="0" fill="#dafbe1" stroke="#d0d7de" stroke-width="1"/>
+<rect x="845" y="155" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="680" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="735" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="845" y="210" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="680" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="735" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="790" y="265" width="55" height="55" rx="0" fill="#dafbe1" stroke="#d0d7de" stroke-width="1"/>
+<rect x="845" y="265" width="55" height="55" rx="0" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<rect x="790" y="210" width="55" height="55" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="2.5"/>
+<text x="817.5" y="241.5" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">B(k,2)</text>
+<rect x="680" y="100" width="220" height="220" rx="0" fill="none" stroke="#57606a" stroke-width="1.5"/>
+<text x="325" y="220" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">=</text>
+<text x="635" y="220" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">×</text>
+<text x="170" y="340" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">stays in cache while k loops</text>
+<text x="480" y="340" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">row of tiles: k = 0, 1, 2, 3</text>
+<text x="790" y="340" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">column of tiles: k = 0, 1, 2, 3</text>
+<text x="490" y="378" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Working set per step = 3 tiles of B × B doubles = 3 · B² · 8 bytes</text>
+<text x="490" y="402" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">Choose B so it fits in cache:  B ≤ √(cache size / 24).  For a 32 KB L1 cache, B ≤ 36, so start with 32 and tune.</text>
+<text x="490" y="424" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">Each tile is reused B times before it leaves the cache, which cuts memory traffic by roughly a factor of B.</text>
+</svg>

@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="510" viewBox="0 0 980 510" role="img" aria-labelledby="t d">
+<title id="t">Loop order and memory access</title>
+<desc id="d">Comparison of ijk and ikj loop orders: ijk reads matrix B down a column, touching a new cache line each time; ikj reads along a row, reusing one cache line.</desc>
+<defs><marker id="a-grey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6e7781"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0969da"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker><marker id="a-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bc4c00"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/></marker><marker id="a-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8250df"/></marker></defs>
+<rect x="0.5" y="0.5" width="979" height="509" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="490" y="36" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Loop order matters: same math, very different memory traffic</text>
+<text x="490" y="58" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">Row-major storage. In this toy example one cache line holds one row of B (8 elements).</text>
+<rect x="10" y="76" width="470" height="420" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="30" y="106" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#cf222e" text-anchor="start" xml:space="preserve">v0 · ijk loop order</text>
+<text x="30" y="126" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">Inner loop walks down a column of B (stride N)</text>
+<text x="182" y="150" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">matrix B (8×8 toy example)</text>
+<text x="182" y="167" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">j  →</text>
+<text x="54" y="292" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">k ↓</text>
+<rect x="70" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="70" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="70" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="70" y="260" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="260" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="260" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="260" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="260" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="260" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="260" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="70" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="70" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="70" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="70" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="98" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="126" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="182" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="210" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="238" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="266" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="154" y="176" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="194" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">1</text>
+<rect x="154" y="204" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="222" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">2</text>
+<rect x="154" y="232" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="250" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">3</text>
+<rect x="154" y="260" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">4</text>
+<rect x="154" y="288" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="306" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">5</text>
+<rect x="154" y="316" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="334" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">6</text>
+<rect x="154" y="344" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="362" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">7</text>
+<rect x="154" y="372" width="28" height="28" rx="0" fill="#ffc1ba" stroke="#cf222e" stroke-width="1.5"/>
+<text x="168" y="390" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">8</text>
+<text x="304" y="194" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="304" y="222" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="304" y="250" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="304" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="304" y="306" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="304" y="334" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="304" y="362" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="304" y="390" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10" font-weight="normal" fill="#cf222e" text-anchor="start" xml:space="preserve">miss</text>
+<text x="245" y="422" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#cf222e" text-anchor="middle" xml:space="preserve">8 accesses → 8 different cache lines</text>
+<rect x="30" y="432" width="430" height="54" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="42" y="452" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">for i: for j: for k:</text>
+<text x="42" y="472" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">  C[i][j] += A[i][k] * B[k][j]   // B: stride N</text>
+<rect x="500" y="76" width="470" height="420" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+<text x="520" y="106" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#1a7f37" text-anchor="start" xml:space="preserve">v1 · ikj loop order</text>
+<text x="520" y="126" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">Inner loop walks along a row of B (stride 1)</text>
+<text x="672" y="150" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">matrix B (8×8 toy example)</text>
+<text x="672" y="167" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">j  →</text>
+<text x="544" y="292" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">k ↓</text>
+<rect x="560" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="588" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="616" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="644" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="672" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="700" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="728" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="756" y="176" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="560" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="588" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="616" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="644" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="672" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="700" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="728" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="756" y="204" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="560" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="588" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="616" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="644" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="672" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="700" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="728" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="756" y="232" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="560" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="588" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="616" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="644" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="672" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="700" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="728" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="756" y="288" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="560" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="588" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="616" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="644" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="672" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="700" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="728" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="756" y="316" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="560" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="588" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="616" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="644" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="672" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="700" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="728" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="756" y="344" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="560" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="588" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="616" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="644" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="672" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="700" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="728" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="756" y="372" width="28" height="28" rx="0" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<rect x="560" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="574" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">1</text>
+<rect x="588" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="602" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">2</text>
+<rect x="616" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="630" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">3</text>
+<rect x="644" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="658" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">4</text>
+<rect x="672" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="686" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">5</text>
+<rect x="700" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="714" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">6</text>
+<rect x="728" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="742" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">7</text>
+<rect x="756" y="260" width="28" height="28" rx="0" fill="#aceebb" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="770" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">8</text>
+<text x="794" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="10.5" font-weight="normal" fill="#1a7f37" text-anchor="start" xml:space="preserve">1 miss, then 7 hits</text>
+<text x="735" y="422" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">8 accesses → 1 cache line (7 reuses)</text>
+<rect x="520" y="432" width="430" height="54" rx="6" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
+<text x="532" y="452" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">for i: for k: for j:</text>
+<text x="532" y="472" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">  C[i][j] += A[i][k] * B[k][j]   // B: stride 1</text>
+</svg>

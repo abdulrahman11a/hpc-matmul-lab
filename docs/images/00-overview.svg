@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="300" viewBox="0 0 980 300" role="img" aria-labelledby="t d">
+<title id="t">Project map</title>
+<desc id="d">Serial, OpenMP, MPI, CUDA and cuBLAS versions of matrix multiplication, each verified, measured and explained.</desc>
+<defs><marker id="a-grey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6e7781"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0969da"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker><marker id="a-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bc4c00"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/></marker><marker id="a-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8250df"/></marker></defs>
+<rect x="0.5" y="0.5" width="979" height="299" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="490" y="36" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Project map: one problem, four programming models</text>
+<text x="490" y="58" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">C = A × B on one core, many cores, many processes and a GPU. Every step is verified, measured and explained.</text>
+<rect x="30" y="84" width="160" height="112" rx="10" fill="#f6f8fa" stroke="#6e7781" stroke-width="1.5"/>
+<text x="110" y="114" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#6e7781" text-anchor="middle" xml:space="preserve">Serial</text>
+<text x="110" y="134" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">v0 · v1 · v2</text>
+<text x="110" y="163" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">1 core</text>
+<text x="110" y="182" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">cache locality</text>
+<line x1="193" y1="140" x2="217" y2="140" stroke="#6e7781" stroke-width="2" marker-end="url(#a-grey)"/>
+<rect x="220" y="84" width="160" height="112" rx="10" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5"/>
+<text x="300" y="114" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#0969da" text-anchor="middle" xml:space="preserve">OpenMP</text>
+<text x="300" y="134" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">v3</text>
+<text x="300" y="163" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">cores in one node</text>
+<text x="300" y="182" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">shared memory</text>
+<line x1="383" y1="140" x2="407" y2="140" stroke="#6e7781" stroke-width="2" marker-end="url(#a-grey)"/>
+<rect x="410" y="84" width="160" height="112" rx="10" fill="#fff1e5" stroke="#bc4c00" stroke-width="1.5"/>
+<text x="490" y="114" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#bc4c00" text-anchor="middle" xml:space="preserve">MPI</text>
+<text x="490" y="134" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">v4</text>
+<text x="490" y="163" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">processes / nodes</text>
+<text x="490" y="182" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">message passing</text>
+<line x1="573" y1="140" x2="597" y2="140" stroke="#6e7781" stroke-width="2" marker-end="url(#a-grey)"/>
+<rect x="600" y="84" width="160" height="112" rx="10" fill="#dafbe1" stroke="#1a7f37" stroke-width="1.5"/>
+<text x="680" y="114" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#1a7f37" text-anchor="middle" xml:space="preserve">CUDA</text>
+<text x="680" y="134" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">v5 · v6</text>
+<text x="680" y="163" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">many GPU threads</text>
+<text x="680" y="182" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">device memory</text>
+<line x1="763" y1="140" x2="787" y2="140" stroke="#6e7781" stroke-width="2" marker-end="url(#a-grey)"/>
+<rect x="790" y="84" width="160" height="112" rx="10" fill="#fbefff" stroke="#8250df" stroke-width="1.5"/>
+<text x="870" y="114" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#8250df" text-anchor="middle" xml:space="preserve">cuBLAS</text>
+<text x="870" y="134" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">v7</text>
+<text x="870" y="163" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">vendor library</text>
+<text x="870" y="182" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">reference ceiling</text>
+<text x="490" y="226" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#57606a" text-anchor="middle" xml:space="preserve">Every version goes through the same loop</text>
+<rect x="30" y="238" width="290" height="40" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/>
+<text x="175" y="263" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">1   Verify correctness</text>
+<line x1="323" y1="258" x2="342" y2="258" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<rect x="345" y="238" width="290" height="40" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/>
+<text x="490" y="263" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">2   Measure: median of ≥ 10 runs</text>
+<line x1="638" y1="258" x2="657" y2="258" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<rect x="660" y="238" width="290" height="40" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/>
+<text x="805" y="263" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">3   Explain: speedup, efficiency, roofline</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="460" viewBox="0 0 980 460" role="img" aria-labelledby="t d">
+<title id="t">Roofline model schematic</title>
+<desc id="d">Schematic log-log roofline for one CPU: a memory-bandwidth slope meeting a flat compute roof at the ridge point, with the expected path of the serial and OpenMP versions.</desc>
+<defs><marker id="a-grey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6e7781"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0969da"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker><marker id="a-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bc4c00"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/></marker><marker id="a-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8250df"/></marker></defs>
+<rect x="0.5" y="0.5" width="979" height="459" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="490" y="36" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Roofline view: is the code memory-bound or compute-bound?</text>
+<text x="490" y="58" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">Schematic only. Dots show the expected path, to be replaced by measured points.</text>
+<line x1="80" y1="390" x2="540" y2="390" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<line x1="80" y1="390" x2="80" y2="75" stroke="#6e7781" stroke-width="1.5" marker-end="url(#a-grey)"/>
+<text x="305" y="424" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">Arithmetic intensity (FLOP / byte), log scale  →</text>
+<text x="34" y="240" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve" transform="rotate(-90 34 240)">Performance (GFLOP/s), log scale  →</text>
+<rect x="335" y="135" width="195" height="255" rx="0" fill="#f6fff8" stroke="none" stroke-width="1"/>
+<line x1="80" y1="390" x2="335" y2="135" stroke="#cf222e" stroke-width="3"/>
+<line x1="335" y1="135" x2="530" y2="135" stroke="#1a7f37" stroke-width="3"/>
+<circle cx="335" cy="135" r="5" fill="#ffffff" stroke="#57606a" stroke-width="2"/>
+<text x="335" y="121" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#57606a" text-anchor="middle" xml:space="preserve">ridge point</text>
+<text x="116" y="294" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#cf222e" text-anchor="start" xml:space="preserve" transform="rotate(-45 116 294)">memory-bandwidth roof</text>
+<text x="526" y="155" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#1a7f37" text-anchor="end" xml:space="preserve">peak compute roof</text>
+<text x="432.5" y="205" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#57606a" text-anchor="middle" xml:space="preserve">compute-bound</text>
+<text x="287" y="378" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#57606a" text-anchor="middle" xml:space="preserve">memory-bound</text>
+<line x1="152.5" y1="371" x2="202.5" y2="334" stroke="#6e7781" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a-grey)"/>
+<line x1="212.5" y1="326" x2="270" y2="266.5" stroke="#6e7781" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a-grey)"/>
+<line x1="278" y1="255.5" x2="288" y2="215" stroke="#0969da" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#a-blue)"/>
+<circle cx="147.5" cy="375" r="6" fill="#bc4c00" stroke="#ffffff" stroke-width="2"/>
+<text x="159.5" y="379" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#bc4c00" text-anchor="start" xml:space="preserve">v0 ijk</text>
+<circle cx="207.5" cy="330" r="6" fill="#bc4c00" stroke="#ffffff" stroke-width="2"/>
+<text x="219.5" y="334" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#bc4c00" text-anchor="start" xml:space="preserve">v1 ikj</text>
+<circle cx="275" cy="262.5" r="6" fill="#bc4c00" stroke="#ffffff" stroke-width="2"/>
+<text x="287" y="266.5" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#bc4c00" text-anchor="start" xml:space="preserve">v2 blocked</text>
+<circle cx="287" cy="207" r="6" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
+<text x="299" y="211" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#0969da" text-anchor="start" xml:space="preserve">v3 OpenMP</text>
+<text x="640" y="110" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">How to read it</text>
+<text x="640" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">Left of the ridge: memory-bound.</text>
+<text x="640" y="157" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">Raise arithmetic intensity: loop order,</text>
+<text x="640" y="178" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">blocking, tiling and data reuse.</text>
+<text x="640" y="220" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">Right of the ridge: compute-bound.</text>
+<text x="640" y="241" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">Use SIMD, FMA and more cores.</text>
+<text x="640" y="283" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">Distance below the roof = headroom.</text>
+<text x="640" y="325" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">Blocking moves a version right,</text>
+<text x="640" y="346" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">threads move it up.</text>
+<text x="640" y="388" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">GPUs have their own roof, with a higher</text>
+<text x="640" y="409" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#57606a" text-anchor="start" xml:space="preserve">peak and bandwidth than this CPU.</text>
+</svg>

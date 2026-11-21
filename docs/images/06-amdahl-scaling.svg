@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="470" viewBox="0 0 980 470" role="img" aria-labelledby="t d">
+<title id="t">Amdahl's law</title>
+<desc id="d">Illustrative speedup curves for 5 percent and 10 percent serial fractions compared with ideal linear speedup, from 1 to 16 workers.</desc>
+<defs><marker id="a-grey" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#6e7781"/></marker><marker id="a-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#0969da"/></marker><marker id="a-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1a7f37"/></marker><marker id="a-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#bc4c00"/></marker><marker id="a-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#cf222e"/></marker><marker id="a-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8250df"/></marker></defs>
+<rect x="0.5" y="0.5" width="979" height="469" rx="10" fill="#ffffff" stroke="#d0d7de"/>
+<text x="490" y="36" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" font-weight="bold" fill="#24292f" text-anchor="middle" xml:space="preserve">Why speedup flattens: Amdahl's law</text>
+<text x="490" y="58" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">Illustrative curves, not measurements. f = fraction of the work that stays serial.</text>
+<line x1="90" y1="390" x2="500" y2="390" stroke="#6e7781" stroke-width="1.5"/>
+<text x="80" y="394" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="end" xml:space="preserve">0</text>
+<line x1="90" y1="317.5" x2="500" y2="317.5" stroke="#d0d7de" stroke-width="1"/>
+<text x="80" y="321.5" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="end" xml:space="preserve">4</text>
+<line x1="90" y1="245" x2="500" y2="245" stroke="#d0d7de" stroke-width="1"/>
+<text x="80" y="249" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="end" xml:space="preserve">8</text>
+<line x1="90" y1="172.5" x2="500" y2="172.5" stroke="#d0d7de" stroke-width="1"/>
+<text x="80" y="176.5" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="end" xml:space="preserve">12</text>
+<line x1="90" y1="100" x2="500" y2="100" stroke="#d0d7de" stroke-width="1"/>
+<text x="80" y="104" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="end" xml:space="preserve">16</text>
+<line x1="90" y1="390" x2="90" y2="90" stroke="#6e7781" stroke-width="1.5"/>
+<line x1="90" y1="390" x2="90" y2="395" stroke="#6e7781" stroke-width="1.5"/>
+<text x="90" y="410" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">1</text>
+<line x1="117.333" y1="390" x2="117.333" y2="395" stroke="#6e7781" stroke-width="1.5"/>
+<text x="117.333" y="410" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">2</text>
+<line x1="172" y1="390" x2="172" y2="395" stroke="#6e7781" stroke-width="1.5"/>
+<text x="172" y="410" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">4</text>
+<line x1="281.333" y1="390" x2="281.333" y2="395" stroke="#6e7781" stroke-width="1.5"/>
+<text x="281.333" y="410" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">8</text>
+<line x1="500" y1="390" x2="500" y2="395" stroke="#6e7781" stroke-width="1.5"/>
+<text x="500" y="410" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#57606a" text-anchor="middle" xml:space="preserve">16</text>
+<text x="295" y="436" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve">Threads / processes (p)</text>
+<text x="38" y="245" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#24292f" text-anchor="middle" xml:space="preserve" transform="rotate(-90 38 245)">Speedup S(p)</text>
+<polyline points="90.0,371.9 117.3,353.8 144.7,335.6 172.0,317.5 199.3,299.4 226.7,281.2 254.0,263.1 281.3,245.0 308.7,226.9 336.0,208.8 363.3,190.6 390.7,172.5 418.0,154.4 445.3,136.2 472.7,118.1 500.0,100.0" fill="none" stroke="#6e7781" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 5"/>
+<polyline points="90.0,371.9 117.3,355.5 144.7,340.6 172.0,327.0 199.3,314.5 226.7,303.0 254.0,292.4 281.3,282.6 308.7,273.5 336.0,265.0 363.3,257.1 390.7,249.7 418.0,242.7 445.3,236.2 472.7,230.1 500.0,224.3" fill="none" stroke="#0969da" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="500" cy="224.286" r="4" fill="#0969da" stroke="none" stroke-width="1.5"/>
+<text x="510" y="228.286" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#0969da" text-anchor="start" xml:space="preserve">f = 5%  (max 20×)</text>
+<polyline points="90.0,371.9 117.3,357.0 144.7,344.7 172.0,334.2 199.3,325.3 226.7,317.5 254.0,310.7 281.3,304.7 308.7,299.4 336.0,294.6 363.3,290.3 390.7,286.4 418.0,282.9 445.3,279.7 472.7,276.7 500.0,274.0" fill="none" stroke="#bc4c00" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="500" cy="274" r="4" fill="#bc4c00" stroke="none" stroke-width="1.5"/>
+<text x="510" y="278" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#bc4c00" text-anchor="start" xml:space="preserve">f = 10%  (max 10×)</text>
+<text x="492" y="92" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#57606a" text-anchor="end" xml:space="preserve">ideal: S = p</text>
+<text x="98" y="76" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">S(p) = 1 / ( f + (1 − f) / p )</text>
+<line x1="660" y1="90" x2="660" y2="440" stroke="#6e7781" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="690" y="110" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#24292f" text-anchor="start" xml:space="preserve">Reading your own results</text>
+<text x="690" y="136" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">Speedup:  S(p) = T(1) / T(p)</text>
+<text x="690" y="158" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">Efficiency:  E(p) = S(p) / p</text>
+<text x="690" y="180" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">Serial fraction from a measurement:</text>
+<text x="690" y="202" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">   f = (1/S − 1/p) / (1 − 1/p)</text>
+<text x="690" y="246" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#bc4c00" text-anchor="start" xml:space="preserve">Flattening earlier than expected?</text>
+<text x="690" y="268" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">• memory bandwidth saturation</text>
+<text x="690" y="290" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">• load imbalance</text>
+<text x="690" y="312" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">• false sharing, thread placement</text>
+<text x="690" y="334" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">• communication (MPI), transfers (GPU)</text>
+<text x="690" y="378" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">Strong scaling: N fixed, p grows.</text>
+<text x="690" y="400" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#24292f" text-anchor="start" xml:space="preserve">Weak scaling: work per worker fixed.</text>
+</svg>
